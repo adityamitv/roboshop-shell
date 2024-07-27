@@ -2,7 +2,7 @@
 
 instances=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "web")
 domain_name="devopshub.shop"
-hosted_zone_id="Z08884492QFPW45HM4UQO"
+hosted_zone_id="Z10272681PN1CG0Z1FW97"
 
 for name in ${instances[@]}; do
     if [ $name == "shipping" ] || [ $name == "mysql" ]
