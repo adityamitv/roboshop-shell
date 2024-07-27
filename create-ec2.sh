@@ -12,7 +12,7 @@ for name in ${instances[@]}; do
         instance_type="t2.micro"
     fi
     echo "Creating instance for: $name with instance type: $instance_type"
-    instance_id=$(aws ec2 run-instances --image-id ami-041e2ea9402c46c32 --instance-type $instance_type --security-group-ids sg-0fea5e49e962e81c9 --subnet-id subnet-09863c54177764565 --query 'Instances[0].InstanceId' --output text)
+    instance_id=$(aws ec2 run-instances --image-id  ami-041e2ea9402c46c32--instance-type $instance_type --security-group-ids sg-0120b014afa854151 --subnet-id subnet-0d995e6e2630fc865  --query 'Instances[0].InstanceId' --output text)
     echo "Instance created for: $name"
 
     aws ec2 create-tags --resources $instance_id --tags Key=Name,Value=$name
