@@ -1,7 +1,7 @@
 #!/bin/bash
 
 instances=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "web")
-domain_name="daws78s.online"
+domain_name="devopshub.shop"
 hosted_zone_id="Z08884492QFPW45HM4UQO"
 
 for name in ${instances[@]}; do
@@ -9,7 +9,7 @@ for name in ${instances[@]}; do
     then
         instance_type="t3.medium"
     else
-        instance_type="t3.micro"
+        instance_type="t2.micro"
     fi
     echo "Creating instance for: $name with instance type: $instance_type"
     instance_id=$(aws ec2 run-instances --image-id ami-041e2ea9402c46c32 --instance-type $instance_type --security-group-ids sg-0fea5e49e962e81c9 --subnet-id subnet-09863c54177764565 --query 'Instances[0].InstanceId' --output text)
